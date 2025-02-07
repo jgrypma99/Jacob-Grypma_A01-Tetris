@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
+using TMPro;
 
 //Jacob Grypma
 //000874598
@@ -13,6 +15,7 @@ public class Tetromino : MonoBehaviour
     public static int width = 10;
     public static int height = 20;
     private static Transform[,] grid = new Transform[width, height];
+    public static int score = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -57,6 +60,8 @@ public class Tetromino : MonoBehaviour
             {
                 transform.position -= new Vector3(0, -1, 0);
                 AddToGrid();
+                CheckLines();
+
                 this.enabled = false;
                 FindObjectOfType<SpawnTetromino>().NewTetromino();
             }
@@ -64,6 +69,58 @@ public class Tetromino : MonoBehaviour
         }
     }
 
+    //check for line clear
+    void CheckLines()
+    {
+        for (int i = height - 1; i >= 0; i--) 
+        {
+            if(HasLine(i))
+            {
+                DeleteLine(i);
+                RowDown(i);
+            }
+        }
+    }
+
+    //check if a line exists by checking each spot on the grid
+    bool HasLine(int i)
+    {
+        for(int j = 0; j < width; j++)
+        {
+            if (grid[j, i] == null)
+                return false;
+        }
+
+        return true;
+    }
+
+    //if a line exists delete each piece there
+    void DeleteLine(int i)
+    {
+        for (int j = 0; j < width; j++)
+        {
+            Destroy(grid[j, i].gameObject);
+            grid[j, i] = null;
+            score = score + 100;
+        }
+    }
+
+    //move pieces above the celared line down
+    void RowDown(int i)
+    {
+        for (int y = i; y < height; y++)
+        {
+            for (int j = 0; j < width; j++)
+            {
+                if (grid[j, y] != null)
+                {
+                    grid[j, y - 1] = grid[j, y];
+                    grid[j, y] = null;
+                    grid[j, y - 1].transform.position -= new Vector3(0, 1, 0);
+                }
+            }
+        }
+    }
     void AddToGrid()
     {
         foreach (Transform children in transform)

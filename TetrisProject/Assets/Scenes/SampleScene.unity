@@ -373,13 +373,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Tetrominos:
-  - {fileID: 2444785220921901655, guid: d57b58a58c58780408ea9410ef107d2f, type: 3}
-  - {fileID: 122208510140529064, guid: c51715afdb879964a98c4123ab5f667a, type: 3}
-  - {fileID: 2571051054789995103, guid: eaf1070d2c822ef45a9ec8615f774a82, type: 3}
-  - {fileID: 3406660580608250869, guid: b8e6c1aea48190c45b29bf8655db805e, type: 3}
-  - {fileID: 2159508069660388324, guid: 5306ce731fe274a44b3e440402eaea48, type: 3}
-  - {fileID: 1677477419571456837, guid: c23279ad989295146a0c0a58fe20bf3e, type: 3}
-  - {fileID: 762496182353136076, guid: 1a08c24f78d1360409415e60fc3921cf, type: 3}
+  - {fileID: 3398613734706333126, guid: 432bfe5ebc659e34c871a560dfedc700, type: 3}
+  - {fileID: 2584371322182048953, guid: 92ad823b45f29d045904906cb5472839, type: 3}
+  - {fileID: 838112911310823992, guid: 909b19a1e9a1f1a418c93fd5b626c9ff, type: 3}
 --- !u!4 &1315018814
 Transform:
   m_ObjectHideFlags: 0
