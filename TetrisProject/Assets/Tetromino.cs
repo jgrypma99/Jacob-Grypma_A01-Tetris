@@ -25,6 +25,7 @@ public class Tetromino : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         //allow for horizontal movement
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {

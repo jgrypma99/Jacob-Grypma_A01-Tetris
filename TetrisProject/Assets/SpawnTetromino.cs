@@ -5,6 +5,7 @@ using UnityEngine;
 public class SpawnTetromino : MonoBehaviour
 {
     public GameObject[] Tetrominos;
+    public Timer Timer;
     // Start is called before the first frame update
     void Start()
     {
@@ -13,6 +14,9 @@ public class SpawnTetromino : MonoBehaviour
 
     public void NewTetromino()
     {
-        Instantiate(Tetrominos[Random.Range(0,Tetrominos.Length)], transform.position, Quaternion.identity);
+        if (Timer.timeRemaining > 0)
+        {
+            Instantiate(Tetrominos[Random.Range(0, Tetrominos.Length)], transform.position, Quaternion.identity);
+        }
     }
 }
